@@ -1,0 +1,181 @@
+<app-header></app-header>
+<div class="heroSec-spcL">
+    <div class="heroSection_wrap overflow-hidden">
+        <div class="container-fluid container-pd-vw pr-0">
+            <div class="row no-gutters">
+                <div class="col-md-6 order-md-1">
+                    <div class="clearfix">
+                        <div class="heroImg float-right"><img class="w-100" src="./assets/images/illustration-working.svg"
+                                alt="" /></div>
+                    </div>
+                </div>
+                <div class="col-md-6 order-md-0 align-self-center">
+                    <div class="mx_w_headCont">
+                        <div class="heroCont_wrapper text-center text-md-left">
+                            <h1 class="contHead f-W-B text-color1">More than just Shorter links</h1>
+                            <div class="txt_summary">Build your brand’s recognition and get detailed Insights on how
+                                your links are performing.</div>
+                            <div class="btnWrap"><a href="#" class="btn btnBg cstBtn_1">Get Started</a></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="secWrap_1">
+    <div class="container-fluid lg-container-vw container-pd-vw">
+        <div class="bx_overlap">
+            <div class="linkForm_wrap bg_color_1">
+                <form [formGroup]="searchform" (ngSubmit)="check()">
+                    <div class="formWrap_link d-md-flex">
+                        <div class="col_fld flex-fill">
+                            <div class="form-group mb-md-0 fld_wrap">
+                                <input type="text" formControlName="url" name="url"  id="url"    class="form-control cst_fld " [ngClass]="{'field_error' : f.url.touched && f.url.invalid == true}"
+                                    placeholder="Shorten a link here...">
+                                    <div *ngIf="f.url.touched && f.url.invalid" >
+                                        <div class="error_label"  *ngIf="f.url.errors.required">Please add a link </div>
+
+                                <div class="error_label"  *ngIf="f.url.errors.pattern">Please add a valid link </div>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="col_btn">
+                            <button   [disabled]="!searchform.valid"  type="submit" class="btn btnBg cstBtn_1 formBtn btn-resp-block">Shorten it!</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <div class="bx_wrap_URL">
+                <ul class="list-unstyled mb-0 list_linkItems" *ngIf="shorturl">
+                    <li *ngFor="let url of fullurl; let i=index;">
+                        <div class="bx_itemLink">
+                            <div class="wrp_in row row-vw align-items-center flex-md-nowrap">
+                                <div class="col-md-7">
+                                    <div class="linkWrap_lg text-ellipsis text-color1 f-sz-20" [innerHTML]="url">
+                                       </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="bx_cont">
+                                        <div class="d-md-flex flex-nowrap align-items-center justify-content-end">
+                                            <div
+                                                class="linkWrap_short flex-fill text-md-right text-ellipsis text-color2  f-sz-20">
+                                                {{shorturl[i]}}</div>
+                                            <div class="col_btn"><button id="btn_{{i}}" (click)="copyMessage(shorturl[i],$event)" 
+                                                    class="btn btnBg cstBtn_2 btn-resp-block">Copy</button></div>
+                                                   
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- <li>
+                        <div class="bx_itemLink">
+                            <div class="wrp_in row row-vw align-items-center flex-md-nowrap">
+                                <div class="col-md-7">
+                                    <div class="linkWrap_lg text-ellipsis text-color1 f-sz-20">
+                                        https://twitter.com/frontendmentor</div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="bx_cont">
+                                        <div class="d-md-flex flex-nowrap align-items-center justify-content-end">
+                                            <div
+                                                class="linkWrap_short flex-fill text-md-right text-ellipsis text-color2 f-sz-20">
+                                                https://rel.ink/gxOXp9</div>
+                                            <div class="col_btn"><button
+                                                    class="btn btnBg cstBtn_2 btnCopied btn-resp-block">Copied</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="bx_itemLink">
+                            <div class="wrp_in row row-vw align-items-center flex-md-nowrap">
+                                <div class="col-md-7">
+                                    <div class="linkWrap_lg text-ellipsis text-color1 f-sz-20">
+                                        https://www.linkedin.com/company/frontend-mentor</div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="bx_cont">
+                                        <div class="d-md-flex flex-nowrap align-items-center justify-content-end">
+                                            <div
+                                                class="linkWrap_short flex-fill text-md-right text-ellipsis text-color2  f-sz-20">
+                                                https://rel.ink/gob3X9</div>
+                                            <div class="col_btn"><button
+                                                    class="btn btnBg cstBtn_2 btn-resp-block">Copy</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+
+        <div class="secHead_wrapp mx_W text-center">
+            <h2 class="sec_heading f-W-B text-color1">Advanced Statistics</h2>
+            <div class="row no-gutters justify-content-center">
+                <div class="col-lg-6 col-md-8">
+                    <div class="sub_Txt line-H-1_5">Track how you links are performing across the web with Our advanced
+                        statistics dashboard.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="staticsWrapper">
+            <div class="row row-vw statics_rowWrap position-relative z-ind-1">
+                <div class="col-md-4">
+                    <div class="statics_Item text-center text-md-left">
+                        <div class="iconWrap bg_color_1"><img class="w-100" src="./assets/images/icon-brand-recognition.svg"
+                                alt="" /></div>
+                        <div class="wrapIns">
+                            <h3 class="bx_title f-W-B text-color1 f-sz-22">Brand Recognition</h3>
+                            <div class="txt_Cont f-sz-15">Boost your brand recognition with each click.Generic links
+                                don’t mean a thing.Branded links help instil Confidence in your content </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="statics_Item text-center text-md-left">
+                        <div class="iconWrap bg_color_1"><img class="w-100" src="./assets/images/icon-detailed-records.svg"
+                                alt="" /></div>
+                        <div class="wrapIns">
+                            <h3 class="bx_title f-W-B text-color1 f-sz-22">Detailed Records</h3>
+                            <div class="txt_Cont f-sz-15">Gain insights into who is clicking your links.Knowing when and
+                                where people engage with your content helps inform better decisions.</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="statics_Item text-center text-md-left">
+                        <div class="iconWrap bg_color_1"><img class="w-100" src="./assets/images/icon-fully-customizable.svg"
+                                alt="" /></div>
+                        <div class="wrapIns">
+                            <h3 class="bx_title f-W-B text-color1 f-sz-22">Brand Recognition</h3>
+                            <div class="txt_Cont f-sz-15">Improve brand awarness and content discoverability through
+                                customizable links, supercharging audience engagement.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="secboost_wrap bg_color_1 text-white">
+    <div class="container-fluid lg-container-vw container-pd-vw">
+        <div class="boost_cont_wrap text-center">
+            <h3 class="bx_head f-W-B">Boost your links today</h3>
+            <div class="btn_wrap"><a href="#" class="btn btnBg cstBtn_1">Get Started</a></div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
